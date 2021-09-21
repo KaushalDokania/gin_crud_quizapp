@@ -178,6 +178,7 @@ func GetQuizQuestions(c *gin.Context) {
 	} else {
 		log.Println("inside else")
 		db.Model(&quiz).Related(&questions)
+		log.Println(quiz)
 		for i, q := range questions {
 			var options []Option
 			db.Model(&q).Related(&options)
